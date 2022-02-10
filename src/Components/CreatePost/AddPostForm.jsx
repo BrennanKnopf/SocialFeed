@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './AddPostForm.css'
 
 const AddPostForm = (props) => {
    
@@ -18,12 +19,16 @@ const AddPostForm = (props) => {
     
     return ( 
         <form onSubmit={handleSubmit} className ='form-grid' >
-        <div>
+        <div className='form-group'>
            <label>Name</label>
            <input type = 'name' value ={name} onChange={(event) => setName(event.target.value)} />
+        </div>
+        <div className='form-group'>
            <label>Post</label>
            <input type = 'post' value={post} onChange={(event) => setPost(event.target.value)} />
-           <button type='submit' >Create</button>
+           <div className="d-flex justify-content-end">
+           <button type='submit' className='btn btn-primary'  >Create</button>
+           </div>
         </div>
     </form> 
 

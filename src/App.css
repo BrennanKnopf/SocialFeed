@@ -2,9 +2,14 @@
     border: 1px;
     border-style: solid;
     border-color: black;
+    margin: 1em;
     padding: 1em;
 }
 
-.displayPost{
-    background-color: white;
+.navbar {
+    background-color: purple;
+}
+
+.App {
+    background-color: coral;
 }

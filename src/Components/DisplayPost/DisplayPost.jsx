@@ -1,44 +1,23 @@
 import React, {useState} from "react";
+import Button from "../Button/Button";
+import './DisplayPost.css'
 
 const DisplayPost = (props) => {
     
-    const [likeColor, setLikeColors] = useState({backgroundColor: "gray"});
-    const [dislikeColor, setdislikeColor] = useState({backgroundColor: "gray"})
-    const [active, setActive] = useState(false);
-    const likeHandleClick = () => {
-        setActive(true);
-        // setdislikeColor({backgroundColor: "red"})
-        setLikeColors({backgroundColor: "green"});
-        if(active === true) {
-            setActive(false);
-            setLikeColors({backgroundColor: "gray"});
-            // setdislikeColor({backgroundColor: "gray"})
-        }
-    }
-    const dislikeHandleClick = () => {
-        setActive(true);
-           setdislikeColor({backgroundColor: "red"})
-        // setLikeColors({backgroundColor: "green"});
-        if(active === true) {
-            setActive(false);
-            // setLikeColors({backgroundColor: "gray"});
-            setdislikeColor({backgroundColor: "gray"})
-        }
-    }
-
-   
-   
-   
     return ( 
-        <table>
+        <table className="displayPost">
             <tbody>
                 {props.parentPost.map((post, index) =>{
                     return (
                         <tr key = {index}>
+                            <div className='border-box'>
                             <td>{post.name}</td>
                             <td>{post.post}</td>
-                            <button type= 'toggle' className='btn btn-secondary' onClick={likeHandleClick} style= {likeColor}>Like </button>
-                            <button type= 'toggle' className='btn btn-secondary' onClick={dislikeHandleClick} style= {dislikeColor}>Dislike</button>
+                            <Button changeColor="green" buttonName="Like"></Button>
+                            <Button changeColor="red" buttonName="Dislike"></Button>
+                            </div>
+                            {/* <button type= 'toggle' className='btn btn-secondary' onClick={likeHandleClick} style= {likeColor}>Like </button>
+                            <button type= 'toggle' className='btn btn-secondary' onClick={dislikeHandleClick} style= {dislikeColor}>Dislike</button> */}
                         </tr>
                     );
                 })}
